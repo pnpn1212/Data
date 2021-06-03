@@ -11,18 +11,18 @@ services:
     #   context: .
     #   dockerfile: "./docker/Dockerfile.custom"
     restart: unless-stopped
-    container_name: patm3
+    container_name: patm_test
     volumes:
       - "./user_data:/freqtrade/user_data"
     # Expose api on port 8080 (localhost only)
     # Please read the https://www.freqtrade.io/en/latest/rest-api/ documentation
     # before enabling this.
-    ports:
-       - "127.0.0.1:8082:8082"
+    # ports:
+    #   - "127.0.0.1:8080:8080"
     # Default command used when running `docker compose up`
     command: >
       trade
       --logfile /freqtrade/user_data/logs/freqtrade.log
       --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite
       --config /freqtrade/user_data/config.json
-      --strategy PPPhucNguyen03
+      --strategy Test
